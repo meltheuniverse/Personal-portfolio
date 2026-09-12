@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Melaney Russell — Motion & Brand Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F6F3;
+    --ink:#15161A;
+    --ink-soft:#6B6D74;
+    --coral:#FF5A36;
+    --line:rgba(21,22,26,0.12);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;line-height:1.55;}
+  h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;letter-spacing:-0.02em;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  a{color:inherit;text-decoration:none;}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--coral);outline-offset:3px;}
+  @media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important;}}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(247,246,243,0.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+  nav{max-width:1140px;margin:0 auto;padding:22px 32px;display:flex;justify-content:space-between;align-items:center;}
+  .brand{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:19px;}
+  .navlinks{display:flex;gap:32px;font-size:14px;}
+  .navlinks span.mono{color:var(--ink-soft);font-size:12px;margin-right:6px;}
+  .navlinks a:hover{color:var(--coral);}
+  @media (max-width:720px){.navlinks{display:none;}}
+  .nav-cta{border:1px solid var(--ink);padding:9px 18px;border-radius:20px;font-size:13px;}
+  .nav-cta:hover{background:var(--ink);color:var(--paper);}
+
+  /* HERO */
+  .hero{max-width:1140px;margin:0 auto;padding:90px 32px 40px;}
+  .hero .mono.tag{color:var(--coral);font-size:13px;margin-bottom:20px;display:block;}
+  .hero h1{font-size:clamp(40px,7vw,96px);line-height:0.98;margin-bottom:8px;}
+  .hero h1 em{font-style:italic;color:var(--coral);font-weight:400;}
+  .hero-sub{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-top:36px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:28px;}
+  .hero-sub p{max-width:44ch;color:var(--ink-soft);font-size:16px;}
+  .hero-sub .stats{display:flex;gap:36px;}
+  .hero-sub .stat b{display:block;font-family:'Bricolage Grotesque',sans-serif;font-size:26px;}
+  .hero-sub .stat span{font-size:12px;color:var(--ink-soft);}
+
+  /* WORK GRID */
+  .work{max-width:1140px;margin:0 auto;padding:80px 32px;}
+  .work-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:44px;}
+  .work-head h2{font-size:28px;}
+  .work-head span.mono{font-size:13px;color:var(--ink-soft);}
+  .work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--line);border:1px solid var(--line);}
+  .piece{background:var(--paper);padding:0;position:relative;overflow:hidden;}
+  .piece-visual{height:280px;position:relative;display:flex;align-items:center;justify-content:center;}
+  .piece-meta{padding:24px 28px 28px;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;}
+  .piece-meta h3{font-size:20px;font-weight:600;margin-bottom:6px;}
+  .piece-meta p{color:var(--ink-soft);font-size:14px;}
+  .piece-meta .mono{font-size:12px;color:var(--ink-soft);white-space:nowrap;}
+  .piece:hover .piece-visual svg{transform:scale(1.04);}
+  .piece-visual svg{transition:transform 0.4s ease;}
+  @media (max-width:760px){.work-grid{grid-template-columns:1fr;}}
+
+  /* PROCESS STRIP */
+  .process{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:64px 32px;}
+  .process .wrap{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;}
+  .process-step .mono{color:var(--coral);font-size:13px;display:block;margin-bottom:12px;}
+  .process-step h3{font-size:17px;margin-bottom:8px;font-weight:600;}
+  .process-step p{font-size:13.5px;color:var(--ink-soft);}
+  @media (max-width:760px){.process .wrap{grid-template-columns:1fr 1fr;}}
+
+  /* ABOUT */
+  .about{max-width:1140px;margin:0 auto;padding:90px 32px;display:grid;grid-template-columns:0.7fr 1.3fr;gap:60px;}
+  .about-mark{width:90px;height:90px;border-radius:50%;background:var(--coral);}
+  .about h2{font-size:clamp(26px,3vw,36px);margin-bottom:20px;}
+  .about p{color:var(--ink-soft);font-size:16.5px;max-width:60ch;margin-bottom:14px;}
+  @media (max-width:760px){.about{grid-template-columns:1fr;}}
+
+  /* CTA */
+  .cta{background:var(--ink);color:var(--paper);padding:100px 32px;text-align:center;}
+  .cta h2{font-size:clamp(30px,4vw,52px);max-width:16ch;margin:0 auto 30px;}
+  .cta .btn{display:inline-block;background:var(--coral);color:var(--ink);padding:16px 32px;border-radius:30px;font-weight:600;font-size:15px;transition:transform 0.2s;}
+  .cta .btn:hover{transform:translateY(-2px);}
+
+  footer{padding:36px 32px;}
+  .footer-inner{max-width:1140px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--ink-soft);}
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="brand">Melaney Russell</div>
+    <div class="navlinks">
+      <a href="#work"><span class="mono">01</span>Work</a>
+      <a href="#process"><span class="mono">02</span>Process</a>
+      <a href="#about"><span class="mono">03</span>About</a>
+    </div>
+    <a href="#contact" class="nav-cta">Get in touch</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <span class="mono tag">MOTION &amp; BRAND DESIGNER</span>
+  <h1>I make brands<br>move like they<br>mean it<em>.</em></h1>
+  <div class="hero-sub">
+    <p>Three years co-assisting on brand systems that hold up in motion — launch films, product animation, and the frame-by-frame details most studios skip.</p>
+    <div class="stats">
+      <div class="stat"><b>16+</b><span>projects co-assisted, and counting</span></div>
+      <div class="stat"><b>Open</b><span>for new projects</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="work" id="work">
+  <div class="work-head">
+    <h2>Representative work</h2>
+    <span class="mono">2023 — 2026</span>
+  </div>
+  <p style="max-width:56ch;color:var(--ink-soft);font-size:14.5px;margin:-24px 0 40px;">Most of my client work sits under NDA, so what's shown here recreates the style and scope of projects I've co-assisted on rather than the original deliverables themselves.</p>
+  <div class="work-grid">
+    <div class="piece">
+      <div class="piece-visual" style="background:#EFE9DE;">
+        <svg width="140" height="140" viewBox="0 0 140 140"><circle cx="70" cy="70" r="55" fill="none" stroke="#FF5A36" stroke-width="3"/><circle cx="70" cy="70" r="30" fill="#FF5A36"/></svg>
+      </div>
+      <div class="piece-meta">
+        <div><h3>Solstice</h3><p>Co-assisted on brand identity &amp; launch film for a solar hardware startup.</p></div>
+        <span class="mono">2025</span>
+      </div>
+    </div>
+    <div class="piece">
+      <div class="piece-visual" style="background:#15161A;">
+        <svg width="140" height="140" viewBox="0 0 140 140"><rect x="30" y="30" width="80" height="80" fill="none" stroke="#F7F6F3" stroke-width="3"/><rect x="50" y="50" width="40" height="40" fill="#FF5A36"/></svg>
+      </div>
+      <div class="piece-meta">
+        <div><h3>Fen Studio</h3><p>Co-assisted on rebrand and motion guidelines for a ceramics house.</p></div>
+        <span class="mono">2024</span>
+      </div>
+    </div>
+    <div class="piece">
+      <div class="piece-visual" style="background:#FFE8E0;">
+        <svg width="140" height="140" viewBox="0 0 140 140"><polygon points="70,20 120,110 20,110" fill="none" stroke="#FF5A36" stroke-width="3"/></svg>
+      </div>
+      <div class="piece-meta">
+        <div><h3>Northline</h3><p>Co-assisted on a product animation system for a fintech dashboard relaunch.</p></div>
+        <span class="mono">2024</span>
+      </div>
+    </div>
+    <div class="piece">
+      <div class="piece-visual" style="background:#EFE9DE;">
+        <svg width="140" height="140" viewBox="0 0 140 140"><line x1="20" y1="120" x2="120" y2="20" stroke="#FF5A36" stroke-width="6"/><line x1="20" y1="20" x2="120" y2="120" stroke="#15161A" stroke-width="6"/></svg>
+      </div>
+      <div class="piece-meta">
+        <div><h3>Petal</h3><p>Co-assisted on identity, packaging, and unboxing motion for a skincare line.</p></div>
+        <span class="mono">2023</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="process-step">
+      <span class="mono">01</span>
+      <h3>Discover</h3>
+      <p>Two weeks embedded with your team before a single frame gets drawn.</p>
+    </div>
+    <div class="process-step">
+      <span class="mono">02</span>
+      <h3>Direction</h3>
+      <p>Three distinct visual directions, presented as motion — not static boards.</p>
+    </div>
+    <div class="process-step">
+      <span class="mono">03</span>
+      <h3>Build</h3>
+      <p>Full system delivery: assets, guidelines, and a working motion library.</p>
+    </div>
+    <div class="process-step">
+      <span class="mono">04</span>
+      <h3>Handoff</h3>
+      <p>Your team leaves knowing how to extend it without calling me back in.</p>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="about-mark"></div>
+  <div>
+    <h2>Three years in, still hungry, and taking on new work.</h2>
+    <p>I've spent the last three years co-assisting on brand and motion projects — 16 and counting — often trading rate for range early on so I could work across categories a junior designer doesn't usually get access to.</p>
+    <p>That means my process is closely mentored and my output is held to the same bar as more senior designers on the team, even if my day rate isn't there yet. If you're an early-stage team that wants real craft without the agency price tag, that's exactly where I'm most useful.</p>
+    <p>Every engagement starts with a paid discovery sprint, so you see real direction before committing to the full build.</p>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <h2>Got a brand that needs to move?</h2>
+  <a href="mailto:hello@melaneyrussell.com" class="btn">Start a project</a>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <span>© 2026 Melaney Russell</span>
+    <span>hello@melaneyrussell.com</span>
+  </div>
+</footer>
+
+</body>
+</html>
